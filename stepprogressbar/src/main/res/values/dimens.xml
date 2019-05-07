@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="step_progressbar_default_margin">2dp</dimen>
+    <dimen name="step_progressbar_default_height">2dp</dimen>
+
+</resources>
