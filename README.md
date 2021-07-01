@@ -15,7 +15,6 @@
 
 
 ### Gradle
-[ ![Download](https://api.bintray.com/packages/prnd/maven/stepprogressbar/images/download.svg) ](https://bintray.com/prnd/maven/stepprogressbar/_latestVersion)
 [![Maven Central](https://img.shields.io/maven-central/v/kr.co.prnd/stepprogressbar.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22kr.co.prnd%22%20AND%20a:%stepprogressbar%22)
 ```gradle
 dependencies {
