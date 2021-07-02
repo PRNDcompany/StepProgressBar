@@ -7,6 +7,7 @@
         <attr name="stepDoneColor" format="color|reference" />
         <attr name="stepUndoneColor" format="color|reference" />
         <attr name="stepMargin" format="dimension" />
+        <attr name="stepKeepMargin" format="boolean" />
     </declare-styleable>
 
 </resources>
