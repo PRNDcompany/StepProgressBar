@@ -1,8 +1,8 @@
 package com.example.stepprogressbardemo
 
 import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import kr.co.prnd.StepProgressBar
 
 class MainActivity : AppCompatActivity() {
@@ -13,8 +13,8 @@ class MainActivity : AppCompatActivity() {
 
         findViewById<StepProgressBar>(R.id.stepProgressBar).apply {
             max = 5
-            step = 1
-            stepDoneColor = Color.GREEN
+            step = 2
+            stepDoneColor = Color.BLUE
             stepUndoneColor = Color.GRAY
         }
 

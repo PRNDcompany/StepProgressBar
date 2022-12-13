@@ -51,6 +51,11 @@ class StepProgressBar @JvmOverloads constructor(
             makeStepView()
         }
 
+    var preserveStepMargin = false
+        set(value) {
+            field = value
+            makeStepView()
+        }
 
     init {
         orientation = HORIZONTAL
@@ -69,6 +74,9 @@ class StepProgressBar @JvmOverloads constructor(
                 typedArray.getColor(R.styleable.StepProgressBar_stepUndoneColor, stepUndoneColor)
             stepMargin =
                 typedArray.getDimensionPixelSize(R.styleable.StepProgressBar_stepMargin, stepMargin)
+
+            preserveStepMargin =
+                typedArray.getBoolean(R.styleable.StepProgressBar_stepKeepMargin, false)
 
             typedArray.recycle()
         }
@@ -102,14 +110,32 @@ class StepProgressBar @JvmOverloads constructor(
 
         removeAllViewsInLayout()
 
-        val totalViewWidth = width - stepMargin * (max - 1)
+        val widthWithoutMargin = width - stepMargin
+        val totalViewWidth = widthWithoutMargin - stepMargin * (max - 1)
         val undoneViewWidth = totalViewWidth / max
         val undoneStepCount = max - step
-        val doneViewWidth = width - undoneStepCount * (undoneViewWidth + stepMargin)
 
-        addDoneView(doneViewWidth, height)
+        if (preserveStepMargin) {
+            val doneViewWidth = totalViewWidth / max
+            repeat(step) { addDoneViewMargin(doneViewWidth, height) }
+
+        } else {
+            val doneViewWidth = width - undoneStepCount * (undoneViewWidth + stepMargin)
+            addDoneView(doneViewWidth, height)
+        }
+
         repeat(undoneStepCount) { addUndoneView(undoneViewWidth, height) }
     }
+
+
+    private fun addDoneViewMargin(doneViewWidth: Int, height: Int) {
+        addView(View(context).apply {
+            layoutParams = LayoutParams(doneViewWidth, height)
+                .apply { leftMargin = stepMargin }
+            setBackgroundColor(stepDoneColor)
+        })
+    }
+
 
     private fun addDoneView(doneViewWidth: Int, height: Int) {
         addView(View(context).apply {

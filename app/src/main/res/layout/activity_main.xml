@@ -8,9 +8,20 @@
 
     <kr.co.prnd.StepProgressBar
         android:id="@+id/stepProgressBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_height="10dp"
+        app:stepKeepMargin="true"
+        app:stepMargin="6dp"
         android:layout_marginTop="24dp" />
+
+
+    <kr.co.prnd.StepProgressBar
+        android:id="@+id/stepProgressBar2"
+        android:layout_width="300dp"
+        android:layout_height="10dp"
+        android:layout_marginTop="24dp"
+        app:stepKeepMargin="false"
+        app:stepMargin="6dp" />
 
 
     <kr.co.prnd.StepProgressBar
@@ -29,6 +40,5 @@
         app:stepDoneColor="#ff0000"
         app:stepMargin="8dp"
         app:stepUndoneColor="#dedede" />
-
 
 </LinearLayout>
